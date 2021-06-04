@@ -2,46 +2,73 @@ using namespace std;
 #include <bitsstdc++.h>
 
 class Person{
+    unsigned int age;
+    
     public:
-        int age;
-        Person(int initialAge);
-        void amIOld();
+        Person();
+
+        Person(const unsigned int& initialAge);
+
+        ~Person();
+
+        void setAge(const unsigned int& newAge);
+
         void yearPasses();
+
+        void amIOld() const;
+
+        unsigned int getAge() const{return this->age;}
     };
 
-    Person::Person(int initialAge){
+    Person::Person(){
+      this->age = 0;
+    }
+
+    Person::Person((const unsigned int& initialAge){
+
         if(initialAge < 0){
-          cout<<"Age is not valid, setting age to 0"<<endl;
-          age = 0;
+          cout << "Age is not valid, setting age to 0" << endl;
+          this->age = 0;
         }else{
           age = initialAge;
         }
     }
 
-    void Person::amIOld(){
-        if(age<13){
-          cout<<"You are young."<<endl;
-        }else if(age>=13 && age < 18){
-          cout<<"You are a teenager."<<endl;
-        }else{
-          cout<<"You are old."<<endl;
-        }
+    ~Person::Person(){}
 
+    void setAge(const unsigned int& newAge){
+      this->age = newAge;
+    }
+
+    void Person::amIOld() const{
+        if(this->age < 13){
+          cout << "You are young." << endl;
+        }else if(this->age >= 13 && this->age < 18){
+          cout << "You are a teenager." << endl;
+        }else{
+          cout << "You are old." << endl;
+        }
     }
 
     void Person::yearPasses(){
-        age +=1;
+        this->age +=1;
     }
 
 int main(){
   int t;
-	int age;
+
+	unsigned int age;
+
     cin >> t;
-    for(int i=0; i < t; i++) {
-    	cin >> age;
+
+    for(int i=0; i < t; ++i {
+    	  cin >> age;
+
         Person p(age);
+
         p.amIOld();
-        for(int j=0; j < 3; j++) {
+
+        for(int j=0; j < 3; ++j) {
         	p.yearPasses();
         }
         p.amIOld();
